@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#5237ef">
+<title>Payton Market · Compre e venda em qualquer país</title>
+<style>
+:root{--p:#5237ef;--on:#fff;--g:#0f8a55;--ink:#1c1b2e;--mu:#6a6882;--bg:#f4f3fb;--cd:#fff;--ln:#dcd9ee;--rd:#c0261b;--in:#fff}
+@media(prefers-color-scheme:dark){:root{--p:#8b7bff;--on:#12111c;--g:#3ddc97;--ink:#ecebff;--mu:#a3a1bd;--bg:#12111c;--cd:#1c1b2b;--ln:#2e2c44;--rd:#ff7a70;--in:#161524}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+header{background:#5237ef;color:#fff;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:5}
+header b{font-size:1.1rem;flex:1;letter-spacing:-.01em}
+header i{width:30px;height:30px;border-radius:50%;background:#fff;color:#5237ef;display:grid;place-items:center;font-style:normal;font-weight:900;position:relative}
+header i::after{content:"";position:absolute;right:-1px;bottom:1px;width:8px;height:8px;border-radius:50%;background:#3ddc97}
+header a{color:#fff;font-weight:700;font-size:.85rem;text-decoration:none;border:1px solid #fff;border-radius:99px;padding:5px 12px}
+main{max-width:600px;margin:0 auto;padding:14px}
+h2{font-size:1.2rem;margin:4px 0 10px}h3{font-size:1.02rem;margin:18px 0 8px}
+form,.bx{display:grid;gap:10px;background:var(--cd);padding:14px;border-radius:12px;border:1px solid var(--ln);margin-bottom:10px}
+label{display:grid;gap:4px;font-size:.88rem;color:var(--mu)}
+input,select,textarea{font:inherit;color:var(--ink);padding:10px;border:1px solid var(--ln);border-radius:8px;background:var(--in);width:100%}
+textarea{min-height:84px;resize:vertical}
+input[type=checkbox]{width:auto}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--p);outline-offset:1px}
+button{font:inherit;font-weight:700;padding:11px 14px;border-radius:9px;border:1px solid var(--p);background:var(--p);color:var(--on);cursor:pointer}
+button:disabled{opacity:.6}
+button.sec{background:transparent;color:var(--p)}button.del{background:transparent;color:var(--rd);border-color:var(--rd)}button.sm{padding:6px 10px;font-size:.85rem}
+.bar{display:grid;grid-template-columns:1fr auto;gap:8px;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.cd{background:var(--cd);border:1px solid var(--ln);border-radius:12px;overflow:hidden;cursor:pointer}
+.im{position:relative}.cd img,.ph{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--ln)}
+.cd>div:last-child{padding:8px 10px}.cd b{display:block;font-size:.92rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hr{position:absolute;top:6px;right:6px;width:34px;height:34px;padding:0;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:1.1rem}
+.hr.on{color:#ff6b81}
+.pr{color:var(--g);font-weight:800}
+.mu{color:var(--mu);font-size:.88rem}.vz{color:var(--mu);padding:20px 0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ac{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.74rem;font-weight:700;padding:2px 8px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.tag.a{color:var(--g)}.tag.v{color:var(--rd)}
+.st{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}.st div{background:var(--cd);border:1px solid var(--ln);border-radius:10px;padding:10px}.st small{display:block;color:var(--mu)}.st b{font-size:1.05rem}
+.big{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;background:var(--ln);display:block}
+.strip{display:flex;gap:8px;margin:8px 0;overflow-x:auto}.strip img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.mt{height:8px;border-radius:9px;background:var(--ln);overflow:hidden}.mt i{display:block;height:100%;background:var(--g)}
+.tip{font-size:.85rem;color:var(--mu);border-left:3px solid var(--p);padding:4px 10px;margin:10px 0}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--cd);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+nav button{flex:1;background:none;border:0;border-radius:0;color:var(--mu);font-size:.8rem;padding:14px 2px}
+nav button.on{color:var(--p);box-shadow:inset 0 3px 0 var(--p)}
+#t{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(82px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:8px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%;z-index:9}
+#t.on{opacity:1}
+a{color:var(--p)}
+</style>
+</head>
+<body>
+<header><i>P</i><b>Payton Market</b><a href="https://wa.me/244972193079?text=Ol%C3%A1%20Payton%20Market!" target="_blank" rel="noopener">Ajuda</a></header>
+<main id="v"><p class="vz">A carregar…</p></main>
+<nav id="nv"></nav>
+<div id="t"></div>
+
+<script type="module">
+/* ====== CONFIGURAÇÃO (veja as instruções) ====== */
+const CFG = { apiKey:"AIzaSyD5Yt8Hs4UYPO_vHAlFPE1fwJdxKE7nisM", authDomain:"payton-market.firebaseapp.com", projectId:"payton-market", appId:"1:817956836930:web:a07a3a1767e92508d8ffdb" };
+const ADMIN_EMAIL = "payton2055w@gmail.com";   // o seu e-mail de administrador
+const WHATS = "244972193079";           // WhatsApp da Payton: +244 972 193 079
+const FREE = 5;                         // vendas grátis por vendedor
+const FEE_VALOR = 2, FEE_MOEDA = "USD";   // valor e moeda da taxa mensal (mude como quiser)
+const TAXA = `${FEE_VALOR} ${FEE_MOEDA} por mês`;
+/* =============================================== */
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = t => { t = String(t).trim(); if (t.includes(",")) t = t.replace(/\./g, "").replace(",", "."); const v = parseFloat(t); return isFinite(v) && v > 0 ? Math.round(v * 100) / 100 : 0; };
+const wa = n => String(n || "").replace(/\D/g, "").replace(/^00/, "");
+const okTel = n => { n = wa(n); return n.length >= 8 && n.length <= 15; };
+const fmt = (v, c) => { try { return Number(v).toLocaleString(undefined, {style:"currency", currency:c || "USD", maximumFractionDigits:2}); } catch (e) { return v + " " + c; } };
+const dt = t => t && t.toDate ? t.toDate().toLocaleDateString() : "";
+const CATS = ["Roupa","Calçado","Eletrónicos","Casa","Beleza","Veículos","Comida","Serviços","Outros"];
+const CURS = ["USD","EUR","GBP","AOA","MZN","BRL","ZAR","NGN","CVE","XOF","CNY","INR"];
+let tm; const msg = t => { const e = $("#t"); e.textContent = t; e.classList.add("on"); clearTimeout(tm); tm = setTimeout(() => e.classList.remove("on"), 3200); };
+
+if (CFG.apiKey.startsWith("COLE")) {
+  $("#v").innerHTML = `<div class="bx"><h2>Falta configurar</h2><p>Cole os dados do seu projeto Firebase no começo do arquivo <b>marketplace.html</b> (bloco CONFIGURAÇÃO) e envie de novo para o GitHub.</p></div>`;
+  throw new Error("Firebase não configurado");
+}
+
+const G = "https://www.gstatic.com/firebasejs/10.12.2/";
+const {initializeApp} = await import(G + "firebase-app.js");
+const A = await import(G + "firebase-auth.js");
+const F = await import(G + "firebase-firestore.js");
+const app = initializeApp(CFG), auth = A.getAuth(app), db = F.getFirestore(app);
+const {collection, doc, setDoc, getDoc, getDocs, addDoc, updateDoc, deleteDoc, deleteField, increment, Timestamp, getCountFromServer, query, where, orderBy, limit, serverTimestamp} = F;
+
+let me = null, prof = null, tab = "loja", det = null, P = [], loaded = false, q = "", cat = "", onlyFav = false, mode = "entrar", fotos = [], thumb = "", gal = [];
+let fav = []; try { fav = JSON.parse(localStorage.getItem("payton_fav") || "[]"); } catch (e) {}
+const saveFav = () => { try { localStorage.setItem("payton_fav", JSON.stringify(fav)); } catch (e) {} };
+if (location.hash.startsWith("#p=")) det = location.hash.slice(3);
+const isAdmin = () => me && me.email && me.email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+const pago = () => prof && prof.pagoAte && prof.pagoAte.toDate && prof.pagoAte.toDate() > new Date();
+const livre = () => prof && ((prof.vendas || 0) < FREE || pago());
+const rows = s => s.docs.map(d => ({id:d.id, ...d.data()}));
+const loadP = async () => { P = rows(await getDocs(query(collection(db, "products"), orderBy("criado", "desc"), limit(60)))); loaded = true; };
+const apagar = id => Promise.all(["products", "detalhes", "contatos"].map(c => deleteDoc(doc(db, c, id))));
+const needLogin = () => `<div class="bx"><h2>Entre na sua conta</h2><p class="mu">Para continuar, entre ou crie uma conta grátis.</p><button data-a="tab" data-v="conta">Entrar ou criar conta</button></div>`;
+
+/* ---------- telas ---------- */
+function grid(){
+  const l = P.filter(p => p.estado === "ativo" && (!onlyFav || fav.includes(p.id)) && (!cat || p.cat === cat) && (!q || (p.titulo + " " + (p.desc || "") + " " + (p.local || "")).toLowerCase().includes(q.toLowerCase())));
+  return l.length ? `<div class="grid">${l.map(p => `<div class="cd" data-a="det" data-v="${p.id}"><div class="im">${p.foto ? `<img src="${p.foto}" alt="${esc(p.titulo)}" loading="lazy">` : `<div class="ph"></div>`}<button class="hr ${fav.includes(p.id) ? "on" : ""}" data-a="fav" data-v="${p.id}" aria-label="Favoritar">${fav.includes(p.id) ? "♥" : "♡"}</button></div><div><b>${esc(p.titulo)}</b><span class="pr">${fmt(p.preco, p.moeda)}</span><div class="mu">${esc(p.local)}</div></div></div>`).join("")}</div>` : `<p class="vz">Nenhum produto encontrado. Seja o primeiro a vender!</p>`;
+}
+async function detalhe(id){
+  let p = P.find(x => x.id === id);
+  if (!p) { const s = await getDoc(doc(db, "products", id)); if (!s.exists()) { det = null; return loja(); } p = {id:s.id, ...s.data()}; }
+  gal = p.foto ? [p.foto] : [];
+  try { const s = await getDoc(doc(db, "detalhes", id)); if (s.exists() && s.data().fotos && s.data().fotos.length) gal = s.data().fotos; } catch (e) {}
+  const mine = me && p.sellerId === me.uid;
+  return `<button class="sec sm" data-a="back">← Voltar</button><div style="height:10px"></div>
+    ${gal.length ? `<img id="bg" class="big" src="${gal[0]}" alt="${esc(p.titulo)}">` : `<div class="big"></div>`}
+    ${gal.length > 1 ? `<div class="strip">${gal.map((g, i) => `<img src="${g}" data-a="img" data-v="${i}" alt="Foto ${i + 1}">`).join("")}</div>` : ""}
+    <h2 style="margin-top:10px">${esc(p.titulo)}</h2><p class="pr" style="font-size:1.35rem">${fmt(p.preco, p.moeda)}</p>
+    <p style="margin:8px 0;white-space:pre-line">${esc(p.desc)}</p><p class="mu">${esc(p.cat)} · ${esc(p.local)} · Vendido por ${esc(p.sellerName)}</p><div style="height:12px"></div>
+    ${p.estado !== "ativo" ? `<p class="tag v" style="display:inline-block">Já vendido</p>` : mine ? `<p class="mu">Este anúncio é seu.</p>` : `<button data-a="contact" data-v="${p.id}" style="width:100%">${me ? "Falar com o vendedor no WhatsApp" : "Entre para falar com o vendedor"}</button>`}
+    <div class="ac" style="margin-top:10px"><button class="sec sm" data-a="share" data-v="${p.id}">Partilhar</button><button class="sec sm" data-a="fav" data-v="${p.id}">${fav.includes(p.id) ? "♥ Favorito" : "♡ Favoritar"}</button><button class="del sm" data-a="rep" data-v="${p.id}">Denunciar</button></div>
+    <p class="tip">Dica de segurança: não pague adiantado a desconhecidos. Combine encontro em local público e confira o produto antes de pagar. A Payton Market só liga compradores e vendedores: não participa no pagamento nem na entrega.</p>`;
+}
+async function loja(){
+  if (!loaded) await loadP();
+  if (det) return detalhe(det);
+  return `<p class="mu">Compre e venda em qualquer país. O vendedor combina pagamento e entrega diretamente com você.</p>
+    <div class="bar"><input id="q" placeholder="Procurar produto ou cidade" value="${esc(q)}"><select id="cat"><option value="">Todas</option>${CATS.map(c => `<option ${c === cat ? "selected" : ""}>${c}</option>`).join("")}</select></div>
+    <div class="ac" style="margin-bottom:10px"><button class="sec sm" data-a="onlyfav">${onlyFav ? "♥ Só favoritos (ativo)" : "♡ Só favoritos"}</button><button class="sec sm" data-a="refresh">Atualizar</button></div><div id="g">${grid()}</div>`;
+}
+async function vender(){
+  if (!me) return needLogin();
+  if (!prof) return `<p class="vz">A carregar o seu perfil…</p>`;
+  const mine = rows(await getDocs(query(collection(db, "products"), where("sellerId", "==", me.uid)))).sort((a, b) => (b.criado?.seconds || 0) - (a.criado?.seconds || 0));
+  const us = Math.min(prof.vendas || 0, FREE);
+  const quota = `<div class="bx"><b>Vendas grátis: ${us} de ${FREE}</b><div class="mt"><i style="width:${us / FREE * 100}%"></i></div>
+    ${pago() ? `<span class="mu">Taxa paga até ${dt(prof.pagoAte)}. Pode publicar.</span>` : (prof.vendas || 0) >= FREE ? `<p>As suas ${FREE} vendas grátis acabaram. Para publicar novos produtos, pague a taxa (${TAXA}).</p><button data-a="fee">Pagar taxa pelo WhatsApp</button>` : `<span class="mu">Depois das ${FREE} vendas, a taxa é de ${TAXA}.</span>`}</div>`;
+  const form = livre() ? `<form data-f="prod"><label>Fotos (até 3)<input type="file" id="ft" accept="image/*" multiple></label><div class="strip" id="pv"></div>
+    <label>Nome do produto<input name="t" required maxlength="80" autocomplete="off"></label>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:10px"><label>Preço<input name="pr" required inputmode="decimal" placeholder="0"></label><label>Moeda<select name="m">${CURS.map(c => `<option>${c}</option>`).join("")}</select></label></div>
+    <label>Categoria<select name="c">${CATS.map(c => `<option>${c}</option>`).join("")}</select></label>
+    <label>Cidade e país<input name="l" required maxlength="60" placeholder="Ex.: Luanda, Angola"></label>
+    <label>Descrição<textarea name="d" maxlength="800" placeholder="Estado, tamanho, cor, entrega…"></textarea></label>
+    <label>O seu WhatsApp (com código do país)<input name="w" required inputmode="tel" value="${esc(prof.whats)}" placeholder="+244 9XX XXX XXX"></label>
+    <p class="mu">O número aparece só para quem entrar na conta. Você combina o pagamento e a entrega com o comprador.</p><button>Publicar produto</button></form>` : "";
+  return `<h2>Vender</h2>${quota}${form}<h3>Os meus produtos</h3>${mine.length ? mine.map(p => `<div class="bx"><div class="row"><div><b>${esc(p.titulo)}</b><div class="mu">${fmt(p.preco, p.moeda)}</div></div><span class="tag ${p.estado === "ativo" ? "a" : "v"}">${p.estado}</span></div>
+    <div class="ac">${p.estado === "ativo" ? `<button class="sec sm" data-a="sold" data-v="${p.id}">Marcar como vendido</button>` : ""}<button class="del sm" data-a="dp" data-v="${p.id}">Excluir</button></div></div>`).join("") : `<p class="vz">Você ainda não publicou nada.</p>`}`;
+}
+async function conta(){
+  if (me) return `<h2>Minha conta</h2><form data-f="perfil"><label>Nome<input name="n" required value="${esc(prof?.nome)}"></label><label>WhatsApp (com código do país)<input name="w" required inputmode="tel" value="${esc(prof?.whats)}"></label><p class="mu">${esc(me.email)}</p><button>Salvar</button></form>
+    <div class="ac"><a href="https://wa.me/${WHATS}?text=${encodeURIComponent("Olá Payton Market! Preciso de ajuda.")}" target="_blank" rel="noopener"><button class="sec">Falar com a Payton Market</button></a><button class="sec" data-a="out">Sair</button></div>`;
+  const reg = mode === "criar";
+  return `<h2>${reg ? "Criar conta" : "Entrar"}</h2><form data-f="${reg ? "reg" : "log"}">
+    ${reg ? `<label>Nome<input name="n" required autocomplete="name"></label><label>WhatsApp (com código do país)<input name="w" required inputmode="tel" placeholder="+244 9XX XXX XXX" autocomplete="tel"></label>` : ""}
+    <label>E-mail<input name="e" type="email" required autocomplete="email"></label>
+    <label>Senha<input name="s" type="password" required minlength="6" autocomplete="${reg ? "new-password" : "current-password"}"></label>
+    ${reg ? `<label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="ok" required> <span>Tenho 16 anos ou mais e aceito que a Payton Market só liga compradores e vendedores: não participa no pagamento, na entrega nem responde pelos produtos.</span></label>` : ""}
+    <button>${reg ? "Criar conta" : "Entrar"}</button></form>
+    <div class="ac"><button class="sec sm" data-a="mode">${reg ? "Já tenho conta" : "Criar conta nova"}</button>${reg ? "" : `<button class="sec sm" data-a="reset">Esqueci a senha</button>`}</div>`;
+}
+async function admin(){
+  if (!isAdmin()) return `<p class="vz">Sem acesso.</p>`;
+  const cnt = async x => { try { return (await getCountFromServer(x)).data().count; } catch (e) { return "?"; } };
+  const [u, r, tx, nu, n7, np, ns] = await Promise.all([
+    getDocs(query(collection(db, "users"), orderBy("vendas", "desc"), limit(100))),
+    getDocs(query(collection(db, "denuncias"), limit(50))),
+    getDocs(query(collection(db, "taxas"), orderBy("criado", "desc"), limit(200))).catch(() => ({docs: []})),
+    cnt(collection(db, "users")),
+    cnt(query(collection(db, "users"), where("criado", ">=", Timestamp.fromDate(new Date(Date.now() - 7 * 864e5))))),
+    cnt(query(collection(db, "products"), where("estado", "==", "ativo"))),
+    cnt(query(collection(db, "products"), where("estado", "==", "vendido")))
+  ]);
+  const us = rows(u), rp = rows(r), tax = rows(tx);
+  const m0 = new Date(); m0.setDate(1); m0.setHours(0, 0, 0, 0);
+  const soma = l => l.reduce((t, x) => t + (x.valor || 0), 0);
+  return `<h2>Admin</h2><div class="st">
+    <div><small>Usuários cadastrados</small><b>${nu}</b></div><div><small>Novos (7 dias)</small><b>${n7}</b></div>
+    <div><small>Anúncios ativos</small><b>${np}</b></div><div><small>Vendas marcadas</small><b>${ns}</b></div>
+    <div><small>Receita total (taxas)</small><b>${fmt(soma(tax), FEE_MOEDA)}</b></div><div><small>Receita deste mês</small><b>${fmt(soma(tax.filter(x => x.criado && x.criado.toDate() >= m0)), FEE_MOEDA)}</b></div></div>
+    <h3>Denúncias (${rp.length})</h3>${rp.length ? rp.map(x => `<div class="bx"><b>${esc(x.titulo)}</b><span class="mu">${esc(x.motivo)}</span><div class="ac"><button class="del sm" data-a="rdel" data-v="${x.id}" data-p="${x.productId}">Excluir anúncio</button><button class="sec sm" data-a="rok" data-v="${x.id}">Dispensar</button></div></div>`).join("") : `<p class="vz">Sem denúncias.</p>`}
+    <h3>Vendedores e taxas</h3>${us.map(x => { const pg = x.pagoAte && x.pagoAte.toDate && x.pagoAte.toDate() > new Date(); return `<div class="bx"><div class="row"><b>${esc(x.nome)}</b><span class="tag ${pg ? "a" : (x.vendas || 0) >= FREE ? "v" : ""}">${pg ? "Taxa paga até " + dt(x.pagoAte) : (x.vendas || 0) + " venda(s)"}</span></div>
+      <div class="mu">${esc(x.email)} · <a href="https://wa.me/${wa(x.whats)}" target="_blank" rel="noopener">${esc(x.whats)}</a></div>
+      <div class="ac"><button class="sm" data-a="feeok" data-v="${x.id}" data-n="${esc(x.nome)}">Taxa paga (+30 dias)</button>${x.pagoAte ? `<button class="del sm" data-a="feeno" data-v="${x.id}">Remover taxa</button>` : ""}</div></div>`; }).join("")}
+    <h3>Taxas recebidas</h3>${tax.length ? tax.slice(0, 10).map(x => `<div class="bx"><div class="row"><b>${esc(x.nome)}</b><span class="pr">${fmt(x.valor, x.moeda)}</span></div><span class="mu">${dt(x.criado)}</span></div>`).join("") : `<p class="vz">Nenhuma taxa registada ainda.</p>`}`;
+}
+
+async function render(){
+  const tabs = [["loja", "Loja"], ["vender", "Vender"], ["conta", me ? "Conta" : "Entrar"]]; if (isAdmin()) tabs.push(["admin", "Admin"]);
+  $("#nv").innerHTML = tabs.map(([k, l]) => `<button data-a="tab" data-v="${k}" class="${k === tab ? "on" : ""}">${l}</button>`).join("");
+  try { $("#v").innerHTML = await ({loja, vender, conta, admin}[tab])(); }
+  catch (e) { console.error(e); $("#v").innerHTML = `<p class="vz">Não foi possível carregar. Verifique a internet e as regras do Firebase.</p>`; }
+}
+
+/* ---------- ações ---------- */
+const errs = {"auth/email-already-in-use":"Esse e-mail já tem conta.","auth/invalid-credential":"E-mail ou senha incorretos.","auth/wrong-password":"E-mail ou senha incorretos.","auth/user-not-found":"E-mail ou senha incorretos.","auth/weak-password":"A senha precisa de pelo menos 6 caracteres.","auth/invalid-email":"E-mail inválido.","auth/too-many-requests":"Muitas tentativas. Espere um pouco."};
+const aerr = e => msg(errs[e.code] || "Algo deu errado. Tente de novo.");
+
+A.onAuthStateChanged(auth, async u => {
+  me = u; prof = null;
+  if (u) { try { prof = (await getDoc(doc(db, "users", u.uid))).data() || null; } catch (e) {} }
+  render();
+});
+
+function resize(file, max, ql){
+  return new Promise((ok, no) => { const im = new Image(), u = URL.createObjectURL(file);
+    im.onload = () => { const k = Math.min(1, max / Math.max(im.width, im.height)), c = document.createElement("canvas"); c.width = Math.round(im.width * k); c.height = Math.round(im.height * k);
+      c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); URL.revokeObjectURL(u); ok(c.toDataURL("image/jpeg", ql)); };
+    im.onerror = no; im.src = u; });
+}
+
+document.addEventListener("input", e => { if (e.target.id === "q") { q = e.target.value; $("#g").innerHTML = grid(); } });
+document.addEventListener("change", async e => {
+  const t = e.target;
+  if (t.id === "cat") { cat = t.value; $("#g").innerHTML = grid(); }
+  if (t.id === "ft" && t.files.length) {
+    try { const fl = [...t.files].slice(0, 3); fotos = await Promise.all(fl.map(f => resize(f, 800, .72))); thumb = await resize(fl[0], 420, .7);
+      $("#pv").innerHTML = fotos.map(f => `<img src="${f}" alt="">`).join(""); } catch (x) { msg("Não consegui ler essas fotos."); }
+  }
+});
+
+document.addEventListener("submit", async e => {
+  const f = e.target, k = f.dataset.f; if (!k) return; e.preventDefault();
+  const d = f.elements, b = f.querySelector("button"); b.disabled = true;
+  try {
+    if (k === "reg") {
+      if (!okTel(d.w.value)) { msg("WhatsApp inválido. Use o código do país, ex.: +244 9XX XXX XXX"); return; }
+      const c = await A.createUserWithEmailAndPassword(auth, d.e.value.trim(), d.s.value);
+      const base = {nome:d.n.value.trim(), whats:d.w.value.trim(), email:d.e.value.trim(), vendas:0, aceitou:true};
+      await setDoc(doc(db, "users", c.user.uid), {...base, criado:serverTimestamp()}); prof = base; tab = "loja"; render(); msg("Conta criada. Bem-vindo!");
+    } else if (k === "log") { await A.signInWithEmailAndPassword(auth, d.e.value.trim(), d.s.value); tab = "loja"; msg("Bem-vindo de volta!"); }
+    else if (k === "perfil") {
+      if (!okTel(d.w.value)) { msg("WhatsApp inválido."); return; }
+      await updateDoc(doc(db, "users", me.uid), {nome:d.n.value.trim(), whats:d.w.value.trim()}); prof = {...prof, nome:d.n.value.trim(), whats:d.w.value.trim()}; msg("Perfil salvo.");
+    } else if (k === "prod") {
+      const pr = num(d.pr.value); if (!pr) { msg("Digite um preço válido."); return; }
+      if (!fotos.length) { msg("Adicione pelo menos uma foto."); return; } if (!okTel(d.w.value)) { msg("WhatsApp inválido. Use o código do país."); return; }
+      const ref = doc(collection(db, "products"));
+      await setDoc(ref, {titulo:d.t.value.trim(), preco:pr, moeda:d.m.value, cat:d.c.value, local:d.l.value.trim(), desc:d.d.value.trim(), foto:thumb, sellerId:me.uid, sellerName:prof.nome || "Vendedor", estado:"ativo", criado:serverTimestamp()});
+      await setDoc(doc(db, "detalhes", ref.id), {sellerId:me.uid, fotos});
+      await setDoc(doc(db, "contatos", ref.id), {sellerId:me.uid, whats:wa(d.w.value)});
+      fotos = []; thumb = ""; loaded = false; render(); msg("Produto publicado!");
+    }
+  } catch (x) { console.error(x); (k === "prod" || k === "perfil") ? msg("Não foi possível salvar. Confira as vendas grátis, a taxa e as regras do Firebase.") : aerr(x); }
+  finally { b.disabled = false; }
+});
+
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-a]"); if (!b) return; const a = b.dataset.a, v = b.dataset.v;
+  try {
+    if (a === "tab") { tab = v; det = null; history.replaceState(null, "", location.pathname); render(); window.scrollTo(0, 0); }
+    else if (a === "det") { det = v; history.replaceState(null, "", "#p=" + v); render(); window.scrollTo(0, 0); }
+    else if (a === "back") { det = null; history.replaceState(null, "", location.pathname); render(); }
+    else if (a === "refresh") { loaded = false; render(); }
+    else if (a === "onlyfav") { onlyFav = !onlyFav; render(); }
+    else if (a === "fav") { fav = fav.includes(v) ? fav.filter(x => x !== v) : [...fav, v]; saveFav(); render(); }
+    else if (a === "img") { $("#bg").src = gal[Number(v)]; }
+    else if (a === "mode") { mode = mode === "criar" ? "entrar" : "criar"; render(); }
+    else if (a === "out") { await A.signOut(auth); tab = "loja"; msg("Você saiu."); }
+    else if (a === "reset") { const m = prompt("Digite o seu e-mail:"); if (m) { await A.sendPasswordResetEmail(auth, m.trim()); msg("Enviamos um e-mail para trocar a senha."); } }
+    else if (a === "share") {
+      const p = P.find(x => x.id === v), url = location.origin + location.pathname + "#p=" + v;
+      if (navigator.share) await navigator.share({title:p ? p.titulo : "Payton Market", text:"Veja este anúncio no Payton Market", url}); else { await navigator.clipboard.writeText(url); msg("Link copiado."); }
+    }
+    else if (a === "contact") {
+      if (!me) { tab = "conta"; render(); msg("Entre na sua conta para falar com o vendedor."); return; }
+      const s = await getDoc(doc(db, "contatos", v)), p = P.find(x => x.id === v);
+      if (!s.exists()) { msg("Contacto indisponível."); return; }
+      window.open("https://wa.me/" + wa(s.data().whats) + "?text=" + encodeURIComponent(`Olá! Vi o anúncio "${p ? p.titulo : ""}" no Payton Market. Ainda está disponível?`), "_blank");
+    }
+    else if (a === "rep") {
+      if (!me) { tab = "conta"; render(); msg("Entre na sua conta para denunciar."); return; }
+      const m = prompt("Qual é o motivo da denúncia?"); if (!m) return; const p = P.find(x => x.id === v);
+      await addDoc(collection(db, "denuncias"), {productId:v, titulo:p ? p.titulo : "", motivo:m.slice(0, 300), por:me.uid, criado:serverTimestamp()}); msg("Denúncia enviada. Obrigado.");
+    }
+    else if (a === "fee") window.open("https://wa.me/" + WHATS + "?text=" + encodeURIComponent(`Olá! Quero pagar a taxa de vendedor (${TAXA}). Meu e-mail: ${me.email}`), "_blank");
+    else if (a === "sold") {
+      if (!confirm("Marcar como vendido? Isso conta como uma venda e não pode ser desfeito.")) return;
+      await updateDoc(doc(db, "products", v), {estado:"vendido"}); await updateDoc(doc(db, "users", me.uid), {vendas:increment(1)}); prof.vendas = (prof.vendas || 0) + 1; loaded = false; render(); msg("Parabéns pela venda!");
+    }
+    else if (a === "dp") { if (confirm("Excluir este produto?")) { await apagar(v); loaded = false; render(); } }
+    else if (a === "feeok") {
+      const val = num(prompt("Valor recebido (" + FEE_MOEDA + "):", String(FEE_VALOR)) || ""); if (!val) return;
+      await updateDoc(doc(db, "users", v), {pagoAte:Timestamp.fromDate(new Date(Date.now() + 30 * 864e5))});
+      await addDoc(collection(db, "taxas"), {uid:v, nome:b.dataset.n || "", valor:val, moeda:FEE_MOEDA, criado:serverTimestamp()});
+      render(); msg("Taxa registada por 30 dias.");
+    }
+    else if (a === "feeno") { await updateDoc(doc(db, "users", v), {pagoAte:deleteField()}); render(); }
+    else if (a === "rdel") { if (confirm("Excluir este anúncio?")) { await apagar(b.dataset.p); await deleteDoc(doc(db, "denuncias", v)); loaded = false; render(); } }
+    else if (a === "rok") { await deleteDoc(doc(db, "denuncias", v)); render(); }
+  } catch (x) { console.error(x); if (x && x.name !== "AbortError") msg("Algo deu errado. Tente de novo."); }
+});
+</script>
+</body>
+</html>
